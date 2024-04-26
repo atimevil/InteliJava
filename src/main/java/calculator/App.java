@@ -52,7 +52,7 @@ public class App {
 
                 ArithmeticCalculator calArith = new ArithmeticCalculator(num1, num2, oper);
 
-                int result = 0;
+                double result = 0;
                 result = calArith.calculate(num1, num2, oper);
                 System.out.println("결과: " + result);
                 calc.addResultArith(result);

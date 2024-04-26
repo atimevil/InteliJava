@@ -3,14 +3,14 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Integer> resultsArith;
+    private ArrayList<Double> resultsArith;
     private ArrayList<Double> resultsCircle;
     private int count;
     private int num1, num2, result;
     private char operator;
     private int radius;
 
-    public int calculate(int a, int b, char oper) throws OperExcept, NumExcept {
+    public double calculate(int a, int b, char oper) throws OperExcept, NumExcept {
         this.num1 = a; //이거 이제 안쓰는거 아닌가? 아니넹
         this.num2 = b;
         this.operator = oper;
@@ -39,7 +39,7 @@ public class Calculator {
     }
 
     public Calculator() {
-        this.resultsArith = new ArrayList<>();
+        this.resultsArith = new ArrayList<Double>();
         this.resultsCircle = new ArrayList<>();
         this.count = 0;
     }
@@ -49,13 +49,13 @@ public class Calculator {
         count--;
     }
 
-    public void addResultArith(int result){
+    public void addResultArith(double result){
         resultsArith.add(result);
         count++;
     }
 
     public void printResultArith() {
-        for(Integer i : resultsArith) {
+        for(Double i : resultsArith) {
             System.out.println(i);
         }
     }
