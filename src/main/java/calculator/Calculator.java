@@ -3,10 +3,12 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Integer> results;
+    private ArrayList<Integer> resultsArith;
+    private ArrayList<Double> resultsCircle;
     private int count;
     private int a, b, result;
     private char oper;
+    private int radius;
 
     public int calculate(int a, int b, char oper) throws OperExcept, NumExcept {
         this.a = a;
@@ -29,23 +31,45 @@ public class Calculator {
         }
     }
 
+    public double calculateCircleArea(int radius) {
+        this.radius = radius;
+        return radius * radius * 3.14;
+    }
+
     public Calculator() {
-        this.results = new ArrayList<>();
+        this.resultsArith = new ArrayList<>();
+        this.resultsCircle = new ArrayList<>();
         this.count = 0;
     }
 
-    public void removeResult() {
-        results.remove(0);
+    public void removeResultArith() {
+        resultsArith.remove(0);
         count--;
     }
 
-    public void addResult(int result){
-        results.add(result);
+    public void addResultArith(int result){
+        resultsArith.add(result);
         count++;
     }
 
-    public void printResult() {
-        for(Integer i : results) {
+    public void printResultArith() {
+        for(Integer i : resultsArith) {
+            System.out.println(i);
+        }
+    }
+
+    public void removeResultCircle() {
+        resultsCircle.remove(0);
+        count--;
+    }
+
+    public void addResultCircle(double result){
+        resultsCircle.add(result);
+        count++;
+    }
+
+    public void printResultCircle() {
+        for(Double i : resultsCircle) {
             System.out.println(i);
         }
     }
