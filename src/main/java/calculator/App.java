@@ -8,9 +8,6 @@ public class App {
 
         Calculator calc = new Calculator();
 
-        ArrayList<Integer> consequence = new ArrayList<>();
-        int count = 0;
-
         while (true) {
             int a, b;
             char c;
@@ -33,17 +30,15 @@ public class App {
                 throw new RuntimeException(e);
             }
             System.out.println("결과: " + result);
-            consequence.add(result);
-            count++;
+            calc.addResult(result);
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
             d = sc.next();
             if (d.equals("exit")) break;
-            if (d.equals("remove")) consequence.remove(0);
-            if (d.equals("inquiry"))
-                for (Integer i : consequence) System.out.println(i);
+            if (d.equals("remove")) calc.removeResult();
+            if (d.equals("inquiry")) calc.printResult();
         }
     }
 }
