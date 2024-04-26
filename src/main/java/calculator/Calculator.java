@@ -6,14 +6,14 @@ public class Calculator {
     private ArrayList<Integer> resultsArith;
     private ArrayList<Double> resultsCircle;
     private int count;
-    private int a, b, result;
-    private char oper;
+    private int num1, num2, result;
+    private char operator;
     private int radius;
 
     public int calculate(int a, int b, char oper) throws OperExcept, NumExcept {
-        this.a = a;
-        this.b = b;
-        this.oper = oper;
+        this.num1 = a;
+        this.num2 = b;
+        this.operator = oper;
         switch (oper) {
             case '+':
                 return a + b;
@@ -74,27 +74,29 @@ public class Calculator {
         }
     }
 
-    public int getA() {
-        return a;
+    public int getNum1() {
+        return num1;
     }
 
-    public void setA() {
-        this.a = a;
+    public void setNum1() {
+        this.num1 = num1;
     }
 
-    public int getB() {
-        return b;
+    public int getNum2() {
+        return num2;
     }
 
     public void setB() {
-        this.b = b;
+        this.num2 = num2;
     }
 
-    public char getOper() {
-        return this.oper;
+    public char getOperator() {
+        return this.operator;
     }
 
-    public char setOper(char oper) {
-        return oper;
+    public char setOperator(char operator) {
+        return operator;
     }
 }
+
+

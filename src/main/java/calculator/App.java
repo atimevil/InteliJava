@@ -17,12 +17,14 @@ public class App {
             option = sc.nextInt();
 
             if (option == 1) {
+
                 int radius;
                 double result;
                 String reOption;
                 System.out.print("원의 반지름을 입력하시오: ");
                 radius = sc.nextInt();
-                result = calc.calculateCircleArea(radius);
+                CircleCalculator calRadius = new CircleCalculator(radius);
+                result = calRadius.calculate(radius);
                 System.out.println("결과: " + result);
                 calc.addResultCircle(result);
 
@@ -48,14 +50,11 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 oper = sc.next().charAt(0);
 
+
+                ArithmeticCalculator calArith = new ArithmeticCalculator(num1, num2, oper);
+
                 int result = 0;
-                try {
-                    result = calc.calculate(num1, num2, oper);
-                } catch (OperExcept e) {
-                    throw new RuntimeException(e);
-                } catch (NumExcept e) {
-                    throw new RuntimeException(e);
-                }
+                result = calArith.calculate(num1, num2, oper);
                 System.out.println("결과: " + result);
                 calc.addResultArith(result);
 
