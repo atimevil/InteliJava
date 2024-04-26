@@ -11,7 +11,7 @@ public class Calculator {
     private int radius;
 
     public int calculate(int a, int b, char oper) throws OperExcept, NumExcept {
-        this.num1 = a;
+        this.num1 = a; //이거 이제 안쓰는거 아닌가? 아니넹
         this.num2 = b;
         this.operator = oper;
         switch (oper) {
@@ -26,6 +26,8 @@ public class Calculator {
                     throw new NumExcept("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 }
                 return a / b;
+            case '%':
+                return a % b;
             default:
                 throw new OperExcept("제대로 된 연산기호를 입력하세요.");
         }

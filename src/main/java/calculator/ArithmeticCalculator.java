@@ -13,6 +13,7 @@ public class ArithmeticCalculator extends Calculator {
     SubtractOperator sub = new SubtractOperator();
     MultiplyOperator mul = new MultiplyOperator();
     DivideOperator div = new DivideOperator();
+    ModOperator mod = new ModOperator();
 
     public int calculate(int num1, int num2, char operator) {
         if(operator == '+') {
@@ -26,6 +27,8 @@ public class ArithmeticCalculator extends Calculator {
                 return 0; // 보류
             }
             result = div.operate(num1, num2);
+        } else if (operator == '%') {
+            result = mod.operate(num1, num2);
         }
 
         return result;
