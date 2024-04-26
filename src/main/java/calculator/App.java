@@ -2,10 +2,11 @@ package calculator;
 
 import java.util.*;
 
-
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        Calculator calc = new Calculator();
 
         ArrayList<Integer> consequence = new ArrayList<>();
         int count = 0;
@@ -24,17 +25,13 @@ public class App {
             c = sc.next().charAt(0);
 
             int result = 0;
-            if (c == '+')
-                result = a + b;
-            else if (c == '-')
-                result = a - b;
-            else if (c == '/')
-                if (b == 0) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    System.exit(0);
-                } else result = a / b;
-            else if (c == '*')
-                result = a * b;
+            try {
+                result = calc.calculate(a, b, c);
+            } catch (OperExcept e) {
+                throw new RuntimeException(e);
+            } catch (NumExcept e) {
+                throw new RuntimeException(e);
+            }
             System.out.println("결과: " + result);
             consequence.add(result);
             count++;
@@ -43,10 +40,10 @@ public class App {
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
             d = sc.next();
-            if(d.equals("exit")) break;
-            if(d.equals("remove")) consequence.remove(0); ;
-            if(d.equals("inquiry"))
-                for(Integer i : consequence) System.out.println(i);
+            if (d.equals("exit")) break;
+            if (d.equals("remove")) consequence.remove(0);
+            if (d.equals("inquiry"))
+                for (Integer i : consequence) System.out.println(i);
         }
     }
 }
