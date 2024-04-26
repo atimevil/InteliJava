@@ -98,5 +98,3 @@ public class Calculator {
         return operator;
     }
 }
-
-

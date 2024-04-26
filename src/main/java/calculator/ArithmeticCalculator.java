@@ -9,20 +9,26 @@ public class ArithmeticCalculator extends Calculator {
         this.operator = operator;
     }
 
+    AddOperator add = new AddOperator();
+    SubtractOperator sub = new SubtractOperator();
+    MultiplyOperator mul = new MultiplyOperator();
+    DivideOperator div = new DivideOperator();
+
     public int calculate(int num1, int num2, char operator) {
         if(operator == '+') {
-            result = num1 + num2;
+            result = add.operate(num1, num2);
         } else if(operator == '-') {
-            result = num1 - num2;
+            result = sub.operate(num1, num2);
         } else if(operator == '*') {
-            result = num1 * num2;
+            result = mul.operate(num1, num2);
         } else if(operator == '/') {
             if (num2 == 0) {
                 return 0; // 보류
             }
-            result = num1 / num2;
+            result = div.operate(num1, num2);
         }
 
         return result;
     }
 }
+

@@ -9,7 +9,6 @@ public class App {
         Calculator calc = new Calculator();
 
         while (true) {
-
             int option;
 
             System.out.println("원의 넓이 구하기(1), 사칙연산하기(2)");
